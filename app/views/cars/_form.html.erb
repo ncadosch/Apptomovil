@@ -1,41 +1,66 @@
-<%= form_for(@car) do |f| %>
-  <% if @car.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
+<%= form_for @car, :html => { :class => "form-horizontal car" } do |f| %>
 
-      <ul>
-      <% @car.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <% if @car.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @car.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label "Que ano te gusta mas" %><br>
-    <%= f.number_field :model %>
+  <div class="control-group">
+    <%= f.label :model, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :model, :class => 'form-control' %>
+    </div>
+    <%= error_span(@car[:model]) %>
   </div>
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
+  <div class="control-group">
+    <%= f.label :color, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :color, :class => 'form-control' %>
+    </div>
+    <%= error_span(@car[:color]) %>
   </div>
-  <div class="field">
-    <%= f.label :brand %><br>
-    <%= f.text_field :brand %>
+  <div class="control-group">
+    <%= f.label :brand, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :brand, :class => 'form-control' %>
+    </div>
+    <%= error_span(@car[:brand]) %>
   </div>
-  <div class="field">
-    <%= f.label :engine %><br>
-    <%= f.text_field :engine %>
+  <div class="control-group">
+    <%= f.label :engine, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :engine, :class => 'form-control' %>
+    </div>
+    <%= error_span(@car[:engine]) %>
   </div>
-  <div class="field">
-    <%= f.label :performance %><br>
-    <%= f.text_field :performance %>
+  <div class="control-group">
+    <%= f.label :performance, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :performance, :class => 'form-control' %>
+    </div>
+    <%= error_span(@car[:performance]) %>
   </div>
-  <div class="field">
-    <%= f.label :kind %><br>
-    <%= f.text_field :kind %>
+  <div class="control-group">
+    <%= f.label :kind, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :kind, :class => 'form-control' %>
+    </div>
+    <%= error_span(@car[:kind]) %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            cars_path, :class => 'btn btn-default' %>
+
 <% end %>

@@ -8,10 +8,10 @@
 </head>
 <header>
 	<ul class="nav nav-tabs">
-	  <li role="presentation" class="active"><a href="#">Home</a></li>
+	  <li role="presentation" class="active"><a href="/">Home</a></li>
 	  <li role="presentation"><a href="#">Blog</a></li>
-	  <li role="presentation"><a href="#">Sobre nosotros</a></li>
-	  <li role="presentation"><a href="#">Contáctanos</a></li>
+	  <li role="presentation"><a><%=link_to 'Sobre Nosotros', static_pages_About_Us_path%></a></li>
+	  <li role="presentation"><a><%=link_to 'Contactanos', static_pages_Contact_info_path%></a></li>
 	</ul>
 	<p class="notice"><%= notice %></p>
    	<p class="alert"><%= alert %></p>
